@@ -7,7 +7,7 @@ const siteConfig = {
   url: "http://localhost:8000",
   logo: "/banner.png",
   siteLanguage: "en_US",
-  pathPrefix: "/",
+  pathPrefix: "/dreamers.io",
 
   themeColor: "#5c7cfa",
   backgroundColor: "#dee2e6",
@@ -112,7 +112,7 @@ const config: GatsbyConfig = {
         name: siteConfig.title,
         short_name: siteConfig.title,
         description: siteConfig.description,
-        start_url: "/",
+        start_url: pathPrefix,
         background_color: siteConfig.backgroundColor,
         theme_color: siteConfig.themeColor,
         display: "standalone",

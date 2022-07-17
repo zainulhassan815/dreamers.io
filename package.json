@@ -15,7 +15,8 @@
     "serve": "gatsby serve",
     "clean": "gatsby clean",
     "typecheck": "tsc --noEmit",
-    "format": "npx prettier --write \"./**/*.{js,jsx,json,ts,tsx}\""
+    "format": "npx prettier --write \"./**/*.{js,jsx,json,ts,tsx}\"",
+    "gh:deploy": "gatsby build --prefix-paths && gh-pages -d public -f"
   },
   "dependencies": {
     "@mantine/core": "^4.2.12",
@@ -47,6 +48,7 @@
     "@types/react": "^18.0.14",
     "@types/react-dom": "^18.0.5",
     "@types/react-helmet": "^6.1.5",
+    "gh-pages": "^4.0.0",
     "typescript": "^4.7.4"
   }
 }
