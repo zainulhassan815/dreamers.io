@@ -7,7 +7,7 @@ const siteConfig = {
   url: "http://localhost:8000",
   logo: "/banner.png",
   siteLanguage: "en_US",
-  pathPrefix: "/dreamers.io",
+  pathPrefix: "/dreamers.io/",
 
   themeColor: "#5c7cfa",
   backgroundColor: "#dee2e6",
@@ -22,6 +22,7 @@ const pathPrefix = siteConfig.pathPrefix === "/" ? "" : siteConfig.pathPrefix;
 
 const config: GatsbyConfig = {
   graphqlTypegen: true,
+  pathPrefix: pathPrefix,
   siteMetadata: {
     author: siteConfig.author,
     title: siteConfig.title,
