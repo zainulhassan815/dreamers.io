@@ -1,0 +1,227 @@
+---
+author: Zain Ul Hassan
+title: Plyr Video Player
+description: Implement an awesome video player in your apps based on plyr.io.
+tags:
+  - video
+  - video player
+  - audio player
+  - customizable design
+publishedAt: 2021-03-21
+github: https://github.com/zainulhassan815/plyrio
+---
+
+## Download
+
+---
+
+<br />
+
+AIX: [Kodular Community](https://community.kodular.io/t/v-2-0-6-plyr-video-player-fullscreen-qualities-captions-thumbnail-attaractive-ui/112735)
+
+AIA: [Kodular Community](https://community.kodular.io/t/v-2-0-6-plyr-video-player-fullscreen-qualities-captions-thumbnail-attaractive-ui/112735)
+
+## Functions
+
+---
+
+### Initialize
+
+Use this block to setup player inside an arrangement.
+
+**_layout :_** arrangement
+
+**_path :_** path to media file
+
+**_thumbnail :_** image that you want to show as a thumbnail. Either offline or online
+
+**_subtitle :_** subtitle path. File format should be SRT
+
+**_subtitle language :_** language of subtitle file
+
+**_media type :_** specify the type of media that you are using. Media Type blocks are given in the extension
+
+**_controls :_** provide a list of controls that you want to show
+
+![Initialize](./img/initialize.png)
+
+### Add Subtitle
+
+Add a new subtitle file. Multiple subtitle files are supported.
+
+**_path :_** path to media file
+
+**_language :_** language of subtitle file
+
+![AddSubtitle](./img/add_subtitle.png)
+
+### Play Media
+
+![Play](./img/play.png)
+
+### Pause Media
+
+![Pause](./img/pause.png)
+
+### Stop Media
+
+Reset video to initial position.
+
+![Stop](./img/stop.png)
+
+### Remove Subtitles
+
+Remove all subtitles
+
+![RemoveSubtitles](./img/remove_subtitles.png)
+
+### Forward
+
+Seek forward.
+
+![SeekForward](./img/forward.png)
+
+### Rewind
+
+Seek Backward or rewind.
+
+![Rewind](./img/rewind.png)
+
+### Get Metadata
+
+Get information about the current video. It returns a dictionary object that can easily be used with dictionary blocks to find specific information. It returns following info :
+
+- Path
+- Media Type
+- Thumbnail
+- Duration
+- List Of Qualities
+- Title of video
+
+![GetMetadata](./img/get_metadata.png)
+
+## Events
+
+---
+
+### On Ready
+
+Event Raised when video player is ready.
+
+![OnReady](./img/on_ready.png)
+
+### On Play
+
+Event Raised when video is played.
+
+![OnPlay](./img/on_play.png)
+
+### On Pause
+
+Event Raised when video is paused.
+
+![OnPause](./img/on_pause.png)
+
+### On Complete
+
+Event Raised when video is completed.
+
+![OnComplete](./img/on_complete.png)
+
+### Time Updated
+
+Event Raised when current position of video is changed.
+
+![TimeUpdate](./img/time_updated.png)
+
+### Track Added
+
+Event Raised when a new subtitle track is added to the player.
+
+![TrackAdded](./img/track_added.png)
+
+### Got Metadata
+
+Event Raised when player returns an object of Metadata that you can use to find information about current video.
+
+![GotMetadata](./img/got_metadata.png)
+
+### Got Text
+
+This block returns the current caption text that you can use to show captions in custom view.
+
+![GotText](./img/got_text.png)
+
+### Loading State
+
+Event Raised when loading state of the player changes. You can use this to show some loading animation in custom design
+
+![LoadingState](./img/loading_state.png)
+
+### On Fullscreen Changed
+
+Event Raised when full screen state changes. You can use this to change orientation of screen.
+
+![OnFullscreenChanged](./img/on_fullscreen_changed.png)
+
+### On Error
+
+Event Raised when there is an error.
+
+![OnError](./img/on_error.png)
+
+## Properties
+
+---
+
+### Loop
+
+Enable or disable loop.
+
+![Loop](./img/loop.png)
+
+### Source
+
+Change video source.
+
+**_Remember_** : It only works if you have not initially used a m3u8 link.
+
+![SetSource](./img/source.png)
+
+---
+
+### Current Quality
+
+Change the quality of the video. It works only when you are using a HLS file that has multiple qualities. It takes index of the quality.
+
+![CurrentQuality](./img/current_quality.png)
+
+### Captions Visible
+
+Set the captions visible to true or false.
+
+![CaptionsVisible](./img/captions_visible.png)
+
+### Current Text Track
+
+Change current subtitles track. It accepts index of the track.
+
+![CurrentTrack](./img/current_track.png)
+
+### Speed
+
+Change the speed of the player.
+
+![Speed](./img/speed.png)
+
+### Thumbnail
+
+Change the thumbnail of the video.
+
+![Thumbnail](./img/thumbnail.png)
+
+### Available Controls
+
+These are the controls that you can provide to player in initialize block.
+
+![Controls](./img/controls.jpeg)

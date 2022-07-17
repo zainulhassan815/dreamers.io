@@ -1,0 +1,282 @@
+---
+author: Zain Ul Hassan
+title: Exoplayer Core
+description: It provides all the basic and core features of Google Exoplayer Core library.
+video:
+tags:
+  - video player
+  - audio player
+  - exoplayer
+publishedAt: 2021-08-01
+github: https://github.com/zainulhassan815/exoplayer-appinventor
+---
+
+## Download
+
+---
+
+<br />
+
+AIX: [Github](https://github.com/zainulhassan815/exoplayer-appinventor/tree/main/exoplayer-core/out)
+
+AIA: [Github](https://github.com/zainulhassan815/exoplayer-appinventor/blob/main/aia/exoplayer_with_title.aia)
+
+## Functions
+
+---
+
+### Create Player
+
+Create and initialize player. Must be called before using with Exoplayer UI.
+
+![Create Player](./img/create_player.png)
+
+### Get Exoplayer Instance
+
+Returns the Exoplayer instance that you can use in _Exoplayer UI - CreatePlayer_
+
+![Get Exoplayer Instance](./img/get_player.png)
+
+### Add Media
+
+Add a new media item to playlist. You can use this block to add multiple media items which are then managed by the player in the form of playlist.
+
+_path:_ path to media
+
+_subtitles:_ list of subtitles
+
+![Add Media](./img/add_media.png)
+
+### Remove Media
+
+Remove media item at specific index from playlist.
+
+_index :_ Index at which you want to remove media item
+
+![Remove Media](./img/remove_media_item.png)
+
+### Clear Media Items
+
+Remove all media items from playlist.
+
+![Clear Media Items](./img/clear_media_items.png)
+
+### Play
+
+Start media playback.
+
+![Play](./img/play.png)
+
+### Pause
+
+Pause media playback.
+
+![Pause](./img/pause.png)
+
+### Stop
+
+Stop current media item.
+
+![Stop](./img/stop.png)
+
+### Seek To
+
+Seek to specific milliseconds.
+
+_position :_ milliseconds
+
+![Seek To](./img/seek_to.png)
+
+### Format
+
+Convert milliseconds to hh:mm:ss format.
+
+_mills :_ milliseconds
+
+![Format](./img/format.png)
+
+## Events
+
+---
+
+### On Render First Frame
+
+Event raised when player has rendered first media frame.
+
+![OnRenderFirstFrame](./img/on_render_first_frame.png)
+
+### On State Changed
+
+Event raised when player state changes.
+
+_state :_ integer representing current state of player that you can compare it with Player States and perform suitable function
+
+![OnStateChanged](./img/on_state_changed.png)
+
+### On Is Playing Changed
+
+Event raised when current playing state changes.
+
+_isPlaying :_ boolean
+
+![OnIsPlayingChange](./img/on_is_playing_changed.png)
+
+### On Loading Change
+
+Event raised when loading state changes.
+
+_loading :_ boolean
+
+![OnLoadingChange](./img/on_loading_changed.png)
+
+### On Media Item Transition
+
+Event raised when media item is changed. Basically when current video/audio is changed and player opens next media item from playlist.
+
+_mediaUrl :_ media url
+
+_reason :_ integer representing transition reason that you can compare with Transition Reason Getters and perform suitable functions.
+
+![OnMediaItemTransition](./img/on_media_item_transition.png)
+
+![TransitionReasons](./img/transition_reason.png)
+
+### On Metadata Changed
+
+Event raised when media metadata changes. You get a JSON response.
+
+_data :_ JSON response that you can manipulate using dictionaries
+
+![OnMetadataChanged](./img/on_metadata_changed.png)
+
+### On Repeat Mode Changed
+
+Event raised when repeat mode changes.
+
+_repeatMode :_ integer representing RepeatMode that you can compare with RepeatModes properties and perform function as per your requirement
+
+![OnRepeatModeChanged](./img/on_repeat_mode_changed.png)
+
+![AvailableRepeatModes](./img/repeat_modes.png)
+
+### On Shuffle Mode Enabled Changed
+
+Event raised when shuffle mode changes.
+
+_enabled :_ boolean
+
+![OnShuffleModeEnabledChanged](./img/on_shuffle_mode_enabled_changed.png)
+
+### On Video Size Changed
+
+Event raised when video size is changed or first measured.
+
+_width :_ video width in pixels
+
+_height :_ video height in pixels
+
+_pixelRatio :_ video size ratio
+
+_unAppliedRotationDegrees :_ degrees in float
+
+![OnVideoSizeChanged](./img/on_video_size_changed.png)
+
+### On Volume Changed
+
+Event raised when device volume changes.
+
+_volume :_ device volume (integer)
+
+_isMuted :_ boolean
+
+![OnVolumeChanged](./img/on_volume_changed.png)
+
+### On Error
+
+Event raised when there is an error during media playback. Currently the block is not very efficient as it doesn’t provide proper detail for error. In the next version, I will try to error codes and respective error messages.
+
+_error :_ error message
+
+![OnError](./img/on_error.png)
+
+## Properties
+
+---
+
+### Set Repeat
+
+Set repeat modes for player.
+
+![RepeatModes](./img/set_repeat_modes.png)
+
+![AvailableRepeatModes](./img/repeat_modes.png)
+
+### Play When Ready
+
+Set whether to automatically play when player is ready or not.
+
+![PlayWhenReady](./img/play_when_ready.png)
+
+### Media Duration
+
+![MediaDuration](./img/duration.png)
+
+### Current Position
+
+![CurrentPosition](./img/current_position.png)
+
+### Buffered Location
+
+![BufferedLocation](./img/buffered_location.png)
+
+### Is Loading
+
+![IsLoading](./img/is_loading.png)
+
+### Is Playing
+
+![IsPlaying](./img/is_playing.png)
+
+### SelectionFlags
+
+These are used when adding subtitles.
+
+![SelectionFlags](./img/selection_flags.png)
+
+## Fix Common Issues
+
+---
+
+### 1- Player won't work after screen off or app is minimized
+
+You can easily fix this issue by using the blocks given below :
+
+> ![Fix](./img/screen_off_fix.png)
+
+### 2- How to add subtitles
+
+> ![AddMedia](./img/add_media.png)
+
+Add a new media item to playlist. You can use this block to add multiple media items which are then managed by the player in the form of playlist. For subtitles, you need to pass in a list of subtitles. Below is a detailed guide for adding subtitles.
+
+To add subtitles there are two ways :
+
+**Dictionary Block**
+
+> ![SubtitlesUsingDictionary](./img/subtitle_dictionary_sample.png)
+
+You can pass a list of subtitles by using dictionary blocks.
+Here only two parameters are required :
+
+- path
+- mime_type
+
+And the rest of the parameters are optional and you can skip them.
+
+**JSON String**
+
+> ![SubtitlesUsingJSON](./img/subtitle_json_sample.png)
+>
+> ![SubtitlesUsingJSONString](./img/subtitle_json_string_sample.png)
+>
+> ![SelectionFlags](./img/selection_flags.png)

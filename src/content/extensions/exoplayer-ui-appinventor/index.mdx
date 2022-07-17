@@ -1,0 +1,267 @@
+---
+author: Zain Ul Hassan
+title: Exoplayer UI
+description: This extension provides prebuilt ui that you can use in your apps without having to create from scratch.
+tags:
+  - video player
+  - audio player
+  - customizable player widget
+publishedAt: 2021-08-02
+github: https://github.com/zainulhassan815/exoplayer-appinventor
+---
+
+## Download
+
+---
+
+<br />
+
+AIX: [Github](https://github.com/zainulhassan815/exoplayer-appinventor/tree/main/exoplayer-ui/out)
+
+AIA: [Github](https://github.com/zainulhassan815/exoplayer-appinventor/blob/main/aia/exoplayer_with_title.aia)
+
+Upload Icons: [Icons.zip](https://downgit.github.io/#/home?url=https://github.com/zainulhassan815/exoplayer-appinventor/tree/main/images/upload-icons)
+
+## Functions
+
+---
+
+### Create Simple Player
+
+Create player view in a layout with basic controls.
+
+**_layout :_** horizontal or vertical arrangement
+
+**_exoplayer :_** exoplayer instance from Core Library
+
+![CreateSimplePlayer](./img/create_simple.png)
+
+### Create Styled Player
+
+Create player view in a layout with extra controls like toggle captions, track selection etc.
+
+_layout :_ horizontal or vertical arrangement
+
+_exoplayer :_ exoplayer instance from Core Library
+
+![CreateSimplePlayer](./img/create_styled.png)
+
+### Show Controls
+
+Show player controls.
+
+![ShowControls](./img/show_controls.png)
+
+### Hide Controls
+
+Hide player controls.
+
+![HideControls](./img/hide_controls.png)
+
+### Show System UI
+
+Can be used to exit fullscreen. The function is in experimental phase and may not work properly.
+
+![ShowSystemUI](./img/show_system_ui.png)
+
+### Hide System UI
+
+Can be used to enter fullscreen. The function is in experimental phase and may not work properly.
+
+![HideSystemUI](./img/hide_system_ui.png)
+
+## Events
+
+---
+
+### On Fullscreen Changed
+
+Event raised when fullscreen button is clicked and its status changes. Here you can perform different functions to enter or exit fullscreen.
+
+_isFullscreen :_ boolean
+
+![OnFullscreenChanged](./img/on_fullscreen_changed.png)
+
+**Sample Usage**
+
+![FullscreenSample](./img/fullscreen_sample.png)
+
+### On Visibility Changed
+
+Event raised when controls visibility changes. Here you can update your UI. For example : You can show/hide a title label etc.
+
+**_visible :_** boolean
+
+![OnVisibilityChanged](./img/on_visibility_changed.png)
+
+## Properties
+
+---
+
+### Use Artwork
+
+Set whether to show an image when playing an audio file.
+
+![UseArtwork](./img/use_artwork.png)
+
+### Default Thumbnail
+
+Set default thumbnail in case if there is no thumbnail in media metadata, the player will show this thumbnail. It works only for audio files.
+
+![DefaultThumbnail](./img/default_thumbnail.png)
+
+### Set Repeat Modes
+
+Set repeat toggle modes. This will show/hide repeat toggle button.
+
+![SetRepeatModes](./img/repeat_mode.png)
+
+### Show Loading
+
+Set when to show loading progress indicator.
+
+![ShowLoading](./img/show_loading.png)
+
+### Resize Mode
+
+Set video resize mode.
+
+![ResizeMode](./img/resize_mode.png)
+
+### Auto Show Controller
+
+Automatically show controller when media is interupted during playback.
+
+![AutoShowController](./img/auto_show_controller.png)
+
+### Controller Timeout
+
+Milliseconds after which the controller should hide automatically.
+
+![ControllerTimeout](./img/controller_timeout.png)
+
+### Hide On Touch
+
+Automatically hide controller on touch
+
+![HideOnTouch](./img/hide_on_touch.png)
+
+### Use Controller
+
+Whether to use default controller or not.
+
+![UseController](./img/use_controller.png)
+
+### Animation Enabled
+
+Enable/Disable controls animation.
+
+![AnimationEnabled](./img/animation_enabled.png)
+
+## Track Properties
+
+---
+
+### Thumb Size
+
+Thumb size when slider is visible but is not being dragged.
+
+![ThumbSize](./img/thumb_size.png)
+
+### Active Thumb Size
+
+Thumb size when slider is being dragged by the user.
+
+![ActiveThumbSize](./img/active_thumb_size.png)
+
+### Disabled Thumb Size
+
+Thumb size when slider is disabled.
+
+![DisabledThumbSize](./img/disabled_thumb_size.png)
+
+### Track Color
+
+![TrackColor](./img/track_color.png)
+
+### Buffered Track Color
+
+![BufferedTrackColor](./img/buffered_color.png)
+
+### Track Progress Color
+
+![ProgressColor](./img/progress_color.png)
+
+## Subtitle Properties
+
+---
+
+### Subtitles Background Color
+
+![SubtitlesBackgroundColor](./img/background_color.png)
+
+Set background color for subtitles.
+
+### Subtitles Foreground Color
+
+Set text or foreground color for subtitles.
+
+![Subtitles Foreground Color](./img/foreground_color.png)
+
+### Subtitles Edge Color
+
+Set edge color for subtitles. I am not quite sure what it does, so you can experiment with this to find out more about it.
+
+![SubtitlesEdgeColor](./img/edge_color.png)
+
+### Subtitles Window Color
+
+Set color for whole subtitle layout.
+
+![Subtitles Window Color](./img/window_color.png)
+
+### Text Size Type
+
+Specify how you want to scale subtitles font size.
+
+![Text Size Type](./img/text_size_type.png)
+
+![Absolute Text Size](./img/text_size_absolute.png)
+
+![Fractional Text Size](./img/text_size_fraction.png)
+
+### Subtitle Render View Type
+
+Specify what type of view to use for rendering subtitles.
+
+![Subtitle Render View Type](./img/render_view_type.png)
+
+### Subtitle Edge Type
+
+![Subtitle Edge Type](./img/edge_type.png)
+
+### Subtitle Bottom Padding
+
+Set bottom padding for subtitles.
+
+![Subtitle Bottom Padding](./img/bottom_padding.png)
+
+### Ignore Bottom Padding
+
+![Ignore Bottom Padding](./img/ignore_padding.png)
+
+### Subtitles Typeface
+
+Specify a custom font for subtitles.
+
+![Subtitles Typeface](./img/typeface.png)
+
+## Fix Common Issues
+
+---
+
+### 1- Player won't work after screen off or app is minimized
+
+You can easily fix this issue by using the blocks given below :
+
+![Fix](./img/screen_off_fix.png)
