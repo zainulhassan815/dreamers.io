@@ -15,8 +15,7 @@
     "serve": "gatsby serve",
     "clean": "gatsby clean",
     "typecheck": "tsc --noEmit",
-    "format": "npx prettier --write \"./**/*.{js,jsx,json,ts,tsx}\"",
-    "gh:deploy": "gatsby build --prefix-paths && gh-pages -d public -f"
+    "format": "npx prettier --write \"./**/*.{js,jsx,json,ts,tsx}\""
   },
   "dependencies": {
     "@mantine/core": "^4.2.12",

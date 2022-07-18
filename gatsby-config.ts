@@ -4,10 +4,10 @@ const siteConfig = {
   author: "Zain Ul Hassan",
   title: "Dreamers Lab",
   description: "Free open-source content for everyone.",
-  url: "http://localhost:8000",
+  url: "https://www.dreamerslab.org",
   logo: "/banner.png",
   siteLanguage: "en_US",
-  pathPrefix: "/dreamers.io/",
+  pathPrefix: "/",
 
   themeColor: "#5c7cfa",
   backgroundColor: "#dee2e6",
@@ -18,11 +18,9 @@ const siteConfig = {
   youtube: "UCSSQg8iowZRTSP4kCypUYdw",
 };
 
-const pathPrefix = siteConfig.pathPrefix === "/" ? "" : siteConfig.pathPrefix;
-
 const config: GatsbyConfig = {
   graphqlTypegen: true,
-  pathPrefix: pathPrefix,
+  pathPrefix: siteConfig.pathPrefix === "/" ? "" : siteConfig.pathPrefix,
   siteMetadata: {
     author: siteConfig.author,
     title: siteConfig.title,
@@ -30,7 +28,6 @@ const config: GatsbyConfig = {
     url: siteConfig.url,
     image: siteConfig.logo,
     siteLanguage: siteConfig.siteLanguage,
-    pathPrefix,
 
     twitter: siteConfig.twitter,
     facebook: siteConfig.facebook,
@@ -113,7 +110,7 @@ const config: GatsbyConfig = {
         name: siteConfig.title,
         short_name: siteConfig.title,
         description: siteConfig.description,
-        start_url: pathPrefix,
+        start_url: siteConfig.pathPrefix,
         background_color: siteConfig.backgroundColor,
         theme_color: siteConfig.themeColor,
         display: "standalone",
