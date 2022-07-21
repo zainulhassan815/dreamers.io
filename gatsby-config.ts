@@ -112,6 +112,12 @@ const config: GatsbyConfig = {
         icon: siteConfig.favicon,
       },
     },
+    {
+      resolve: `gatsby-plugin-sitemap`,
+      options: {
+        siteUrl: siteConfig.url,
+      },
+    },
   ],
 };
 
