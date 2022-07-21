@@ -5,7 +5,7 @@ const siteConfig = {
   title: "Dreamers Lab",
   description: "Free open-source content for everyone.",
   url: "https://www.dreamerslab.org",
-  logo: "/banner.png",
+  image: "/banner.png",
   siteLanguage: "en_US",
   pathPrefix: "/",
 
@@ -14,8 +14,6 @@ const siteConfig = {
   favicon: "src/content/images/logo.svg",
 
   twitter: "ZainUlH00805492",
-  facebook: "zain.ulhassan.710667",
-  youtube: "UCSSQg8iowZRTSP4kCypUYdw",
 };
 
 const config: GatsbyConfig = {
@@ -25,13 +23,10 @@ const config: GatsbyConfig = {
     author: siteConfig.author,
     title: siteConfig.title,
     description: siteConfig.description,
-    url: siteConfig.url,
-    image: siteConfig.logo,
+    siteUrl: siteConfig.url,
+    image: siteConfig.image,
     siteLanguage: siteConfig.siteLanguage,
-
     twitter: siteConfig.twitter,
-    facebook: siteConfig.facebook,
-    youtube: siteConfig.youtube,
   },
   plugins: [
     `gatsby-plugin-mantine`,

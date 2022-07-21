@@ -12,60 +12,39 @@ const SeoProvider = () => {
               title
               description
               siteLanguage
-              url
+              siteUrl
               image
-              facebook
               twitter
-              youtube
             }
           }
         }
       `}
       render={(data: Queries.SeoProviderQuery) => {
-        const {
-          title,
-          description,
-          image,
-          url,
-          siteLanguage,
-          facebook,
-          twitter,
-          youtube,
-        } = data.site?.siteMetadata ?? {};
+        const { title, description, image, siteUrl, siteLanguage, twitter } =
+          data.site?.siteMetadata ?? {};
 
-        const imgSrc = `${url}${image}`;
         return (
           <Helmet>
             <title>{title}</title>
             {description && <meta name="description" content={description} />}
-            <meta name="image" content={imgSrc} />
 
-            {title && <meta name="og:title" content={title} />}
-            {title && <meta name="og:site_name" content={title} />}
-            <meta name="og:image" content={imgSrc} />
-            {url && <meta property="og:url" content={url} />}
+            {siteUrl && <meta property="og:url" content={siteUrl} />}
             <meta property="og:type" content="website" />
-
-            {youtube && (
-              <meta
-                name="youtube"
-                content={`https://www.youtube.com/channel/${youtube}`}
-              />
+            {title && <meta property="og:title" content={title} />}
+            {description && (
+              <meta property="og:description" content={description} />
             )}
-            {facebook && (
-              <meta
-                name="facebook"
-                content={`https://www.facebook.com/${facebook}`}
-              />
-            )}
+            {image && <meta property="og:image" content={image} />}
 
             <meta name="twitter:card" content="summary_large_image" />
-            {twitter && <meta name="twitter:creator" content={twitter} />}
+            <meta property="twitter:domain" content="dreamerslab.org" />
+            {siteUrl && <meta property="twitter:url" content={siteUrl} />}
             {title && <meta name="twitter:title" content={title} />}
             {description && (
               <meta name="twitter:description" content={description} />
             )}
-            <meta name="twitter:image" content={imgSrc} />
+            {image && <meta name="twitter:image" content={image} />}
+            {twitter && <meta name="twitter:creator" content={twitter} />}
             {siteLanguage && (
               <meta property="og:locale" content={siteLanguage} />
             )}

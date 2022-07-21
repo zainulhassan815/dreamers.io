@@ -47,23 +47,35 @@ const CardTemplate = ({ data }: PageProps<Queries.CardTemplateQuery>) => {
         <title>{title}</title>
         {description && <meta name="description" content={description} />}
 
-        {title && <meta name="og:title" content={title} />}
-        {description && <meta name="og:description" content={description} />}
-        <meta name="og:type" content="article" />
+        {title && <meta property="og:title" content={title} />}
+        {description && (
+          <meta property="og:description" content={description} />
+        )}
+        {thumbnail && (
+          <meta
+            property="og:image"
+            content={thumbnail.childImageSharp?.original?.src ?? undefined}
+          />
+        )}
         {contributor?.name && (
           <meta property="article:author" content={contributor.name} />
         )}
         {publishedAt && (
           <meta name="article:published_time" content={publishedAt} />
         )}
-        {tags &&
-          tags.map(tag => (
-            <meta key={tag} property="article:tag" content={tag} />
-          ))}
-        {tags &&
-          tags.map(tag => (
-            <meta key={tag} property="article:section" content={tag} />
-          ))}
+
+        <meta name="twitter:card" content="summary_large_image" />
+        <meta property="twitter:domain" content="dreamerslab.org" />
+        {title && <meta name="twitter:title" content={title} />}
+        {description && (
+          <meta name="twitter:description" content={description} />
+        )}
+        {thumbnail && (
+          <meta
+            property="twitter:image"
+            content={thumbnail.childImageSharp?.original?.src ?? undefined}
+          />
+        )}
       </Helmet>
       <Group
         spacing="lg"
@@ -167,6 +179,9 @@ export const query = graphql`
         thumbnail {
           childImageSharp {
             gatsbyImageData(layout: FULL_WIDTH, placeholder: BLURRED)
+            original {
+              src
+            }
           }
         }
         publishedAt(formatString: "MMMM DD, YYYY")
