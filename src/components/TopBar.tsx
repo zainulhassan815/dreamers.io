@@ -59,7 +59,7 @@ export const HeaderLinks = (
   return (
     <>
       {links.map(link => (
-        <HeaderLink {...link} {...props} />
+        <HeaderLink key={link.label} {...link} {...props} />
       ))}
     </>
   );
