@@ -3,18 +3,18 @@ import {
   AppShellProps,
   Global,
   MantineProvider,
+  useMantineColorScheme,
   useMantineTheme,
 } from "@mantine/core";
 import { useMediaQuery } from "@mantine/hooks";
 import React from "react";
-import { useThemeContext } from "../utils";
 import SeoProvider from "./SeoProvider";
 import TopBar from "./TopBar";
 
 const BaseLayout = ({ children, ...props }: AppShellProps) => {
   const theme = useMantineTheme();
   const xsBreakpoint = useMediaQuery(`(max-width:${theme.breakpoints.xs}px)`);
-  const { selectedTheme } = useThemeContext();
+  const { colorScheme } = useMantineColorScheme();
 
   return (
     <>
@@ -26,7 +26,7 @@ const BaseLayout = ({ children, ...props }: AppShellProps) => {
           },
           h1: {
             color: `${
-              selectedTheme === "dark"
+              colorScheme === "dark"
                 ? theme.colors.gray[0]
                 : theme.colors.dark[9]
             } !important`,
@@ -34,7 +34,7 @@ const BaseLayout = ({ children, ...props }: AppShellProps) => {
           },
           h2: {
             color: `${
-              selectedTheme === "dark"
+              colorScheme === "dark"
                 ? theme.colors.gray[2]
                 : theme.colors.dark[7]
             } !important`,
@@ -42,7 +42,7 @@ const BaseLayout = ({ children, ...props }: AppShellProps) => {
           },
           h3: {
             color: `${
-              selectedTheme === "dark"
+              colorScheme === "dark"
                 ? theme.colors.gray[4]
                 : theme.colors.dark[5]
             } !important`,
@@ -55,7 +55,7 @@ const BaseLayout = ({ children, ...props }: AppShellProps) => {
         withGlobalStyles
         withCSSVariables
         theme={{
-          colorScheme: selectedTheme,
+          colorScheme: colorScheme,
           primaryColor: "indigo",
           fontFamily: "Open Sans",
           fontFamilyMonospace: "JetBrains Mono",
@@ -83,7 +83,7 @@ const BaseLayout = ({ children, ...props }: AppShellProps) => {
           styles={{
             body: {
               backgroundColor:
-                selectedTheme === "dark"
+                colorScheme === "dark"
                   ? theme.colors.dark[8]
                   : theme.colors.gray[2],
               minHeight: `calc(100vh - var(--mantine-header-height))`,

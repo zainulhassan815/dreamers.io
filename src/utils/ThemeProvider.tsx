@@ -1,29 +1,30 @@
-import { ColorScheme } from "@mantine/core";
-import React, { createContext, useContext } from "react";
-import useThemeSwitcher from "./use-theme-switcher";
-
-interface ThemeContextValue {
-  selectedTheme: ColorScheme;
-  toggleTheme: () => void;
-}
-
-const ThemeContext = createContext<ThemeContextValue>({
-  selectedTheme: "dark",
-  toggleTheme: () => {},
-});
-
-const useThemeContext = () => useContext(ThemeContext);
+import { ColorScheme, ColorSchemeProvider } from "@mantine/core";
+import { useHotkeys, useLocalStorage, useLogger } from "@mantine/hooks";
+import React from "react";
 
 const ThemeProvider = ({ children }: { children: React.ReactNode }) => {
-  const DefaultThemeContext = useThemeSwitcher();
+  const [colorScheme, setColorScheme] = useLocalStorage<ColorScheme>({
+    key: "theme-preference",
+    defaultValue: "light",
+    getInitialValueInEffect: false,
+  });
+
+  const toggleColorScheme = (value?: ColorScheme) => {
+    setColorScheme(value || (colorScheme === "dark" ? "light" : "dark"));
+  };
+
+  useHotkeys([["mod+J", () => toggleColorScheme()]]);
+
+  useLogger("ThemeProvider", [colorScheme]);
 
   return (
-    <ThemeContext.Provider value={DefaultThemeContext}>
+    <ColorSchemeProvider
+      colorScheme={colorScheme}
+      toggleColorScheme={toggleColorScheme}
+    >
       {children}
-    </ThemeContext.Provider>
+    </ColorSchemeProvider>
   );
 };
 
 export default ThemeProvider;
-
-export { useThemeContext };

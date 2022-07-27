@@ -1,4 +1,3 @@
-import ThemeProvider, { useThemeContext } from "./ThemeProvider";
-import useThemeSwitcher from "./use-theme-switcher";
+import ThemeProvider from "./ThemeProvider";
 
-export { ThemeProvider, useThemeContext, useThemeSwitcher };
+export { ThemeProvider };

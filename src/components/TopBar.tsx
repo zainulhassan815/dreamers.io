@@ -1,23 +1,19 @@
 import {
-  IconPlugConnected,
-  IconSearch,
-  IconMoon,
-  IconSun,
-  IconSchool,
-} from "@tabler/icons";
-import {
   ActionIcon,
   Button,
   ButtonProps,
   Group,
   Header,
-  useMantineTheme,
+  useMantineColorScheme,
+  useMantineTheme
 } from "@mantine/core";
+import { useMediaQuery } from "@mantine/hooks";
+import {
+  IconMoon, IconPlugConnected, IconSchool, IconSearch, IconSun
+} from "@tabler/icons";
 import { Link } from "gatsby";
 import React from "react";
-import { useThemeContext } from "../utils";
 import BrandLogo from "./BrandLogo";
-import { useMediaQuery } from "@mantine/hooks";
 
 interface HeaderLinkProps extends Partial<ButtonProps<"button">> {
   to: string;
@@ -67,7 +63,7 @@ export const HeaderLinks = (
 
 const TopBar = () => {
   const theme = useMantineTheme();
-  const { selectedTheme, toggleTheme } = useThemeContext();
+  const { colorScheme, toggleColorScheme } = useMantineColorScheme();
   const largeBreakpoint = useMediaQuery(
     `(min-width:${theme.breakpoints.xs}px)`
   );
@@ -98,9 +94,9 @@ const TopBar = () => {
           title="Toggle Theme"
           size="xl"
           variant="default"
-          onClick={toggleTheme}
+          onClick={() => toggleColorScheme()}
         >
-          {selectedTheme === "dark" ? (
+          {colorScheme === "dark" ? (
             <IconSun size={24} />
           ) : (
             <IconMoon size={24} />
